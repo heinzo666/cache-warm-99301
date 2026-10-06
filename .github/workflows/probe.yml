@@ -1,0 +1,13 @@
+name: probe
+on:
+  workflow_dispatch:
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: info
+        run: |
+          echo RUNNER_OK
+          nproc; free -m | head -2; df -h / | tail -1
+          curl -s --max-time 10 https://api.ipify.org; echo
